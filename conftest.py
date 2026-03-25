@@ -45,7 +45,6 @@ def _attach_trace_on_failure(request, module_context: BrowserContext):
         trace_path = f"traces/{request.node.name}.zip"
         module_context.tracing.stop(path=trace_path)
         allure.attach.file(trace_path, name="trace", extension="zip")
-        # Restart tracing for the next test.
         module_context.tracing.start(screenshots=True, snapshots=True, sources=True)
 
 
