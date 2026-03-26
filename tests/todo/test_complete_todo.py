@@ -10,7 +10,9 @@ class TestCompleteTodo:
         todo_page.add_todo("Finish report")
 
         todo_page.toggle_todo_by_text("Finish report")
-        expect(todo_page.todo_items.filter(has_text="Finish report")).to_have_class(["completed"])
+        expect(todo_page.todo_items.filter(has_text="Finish report")).to_have_class(
+            ["completed"]
+        )
 
         todo_page.filter_completed()
         expect(todo_page.todo_items).to_have_count(1)

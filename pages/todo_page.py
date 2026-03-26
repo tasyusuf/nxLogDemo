@@ -37,7 +37,9 @@ class TodoPage:
     @allure.step('Delete todo: "{text}"')
     def delete_todo_by_text(self, text: str) -> None:
         self.todo_items.filter(has_text=text).hover()
-        self.todo_items.filter(has_text=text).get_by_role("button", name="Delete").click()
+        self.todo_items.filter(has_text=text).get_by_role(
+            "button", name="Delete"
+        ).click()
 
     @allure.step("Clear completed todos")
     def clear_completed(self) -> None:
